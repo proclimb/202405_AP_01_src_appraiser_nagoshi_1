@@ -11,7 +11,6 @@ function fnGuideEditCheck() {
 		tmp = getEditObject(i, "guideStart");
 		if (tmp.value == '') { alert(msg + "案内日(開始日付)を入力してください"); return; }
 		if (!fnYMDCheck(msg + "開始日付には正しい日付", tmp)) { return; }
-		if (!fnYMDCheck(msg + "開始日付には正しい日付", getEditObject(i, "guideStartDT"))) { return; }
 		if (!fnYMDCheck(msg + "終了日付には正しい日付", getEditObject(i, "guideEndDT"))) { return; }
 		if (isLength(100, msg + "担当", getEditObject(i, "charge"))) { return; }
 		if (isLength(100, msg + "営業店", getEditObject(i, "name"))) { return; }
@@ -66,7 +65,7 @@ function fnGuideMove(muki, articleNo) {
 		// 名称の取得
 		var articleName = $(obj.children()[0]).text();
 		var articleRoom = $(obj.children()[1]).text();
-		var articleKey = $(obj.children()[2]).text();
+		var articleKey = $(obj.children()[2]).html();
 
 		// 登録リストに保存(右側に移動)
 		tags = "<tr id=\"r" + articleNo + "\">";
